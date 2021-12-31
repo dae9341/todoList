@@ -1,0 +1,7 @@
+
+.dataList__user{display: flex; width: 100%; height: 50px; align-items: center;}
+.dataList__user .dataList__userNo{background: blueviolet; color:#fff; width: 25px; text-align: center; }
+.dataList__user>div{margin-left: 10px;}
+.dataList__userCity{}
+.dataList__userEmail{}
+.dataList__userPass{}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!--<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+<div class="main">
+
+    <!--데이터입력-->
+    <div class="addData" id="submitForm" style="width: 300px;">
+        <div class="addData__input">
+            이름:
+            <input type="text" placeholder="name" id="addData__name">
+        </div>
+        <div class="addData__input">
+            나이:
+            <input type="text" placeholder="age" id="addData__age">
+        </div>
+        <div class="addData__input">
+            주소:
+            <input type="text" placeholder="city" id="addData__city">
+        </div>
+        <div class="addData__input">
+            이메일:
+            <input type="text" placeholder="email" id="addData__email">
+        </div>
+
+        <div class="addData__pass" id="addData__pass">
+            합격: <input type="radio" name="passRadio" checked="checked" value="true">
+            불합격: <input type="radio" name="passRadio" value="false">
+        </div>
+
+        <button type="button" id="submitBtn">제출</button>
+    </div>
+    <!--//데이터입력-->
+
+
+
+    <!--데이터리스트-->
+    <div class="dataList" id="dataList">
+    </div>
+    <!--//데이터리스트-->
+
+</div>
+
+</body>
+</html>
