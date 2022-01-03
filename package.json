@@ -9,10 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^9.6.1"
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "firebase": "^9.6.1",
+    "gulp-babel": "^8.0.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
     "sass": "^1.45.2"
   }
