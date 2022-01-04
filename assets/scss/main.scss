@@ -1,4 +1,14 @@
+/*! 베이스 */
 @import "base/mixin";
 @import "base/reset";
 @import "base/common";
 
+/*! 레이아웃 */
+@import "inc/layout/header"; // 레이아웃 > 헤더
+@import "inc/layout/footer"; // 레이아웃 > 헤더
+
+/*! 모듈 */
+@import "inc/module/todoItem"; // 모듈 > 할일 기본 형식
+
+/*! 컴포넌트 */
+@import "inc/component/todoList"; // 컴포넌트 > 할일 목록

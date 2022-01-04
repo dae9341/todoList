@@ -1,0 +1,16 @@
+.todoItem{display: grid;grid-template-columns: 1fr auto;padding: 10px;border:1px solid #333;
+  grid-template-areas:
+    "work btns"
+    "endTime endTime"
+    "more more";
+  &__work{
+    grid-area: work;
+    &__name{margin-top: 5px;}
+  }
+  &__btns{display: flex;align-items: center; grid-area:btns;}
+  &__endTime{grid-area:endTime; text-align: right; font-size:12px;}
+  &__more{grid-area: more; width: 100%; margin-top: 10px;
+    &__btn{display: flex; align-items: center; justify-content: flex-end; font-size:12px; background-color: $COLOR_LOWGRAY; padding: 2px 5px;}
+    &__content{}
+  }
+}

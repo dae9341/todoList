@@ -1,0 +1,9 @@
+html *{font-size:14px;color: $COLOR_DARKGRAY;}
+button{background: $COLOR_BRAND;outline: none;border: none; color:#fff; height: 24px;padding: 0 5px;}
+
+.label{background-color: $COLOR_GRAY; color:#fff; font-size:12px; width: auto; height: 18px; padding: 2px 6px; box-sizing: border-box; display: inline-flex; @include center;}
+.label.-green{background-color: seagreen;}
+.label.-blue{background-color: cornflowerblue;}
+.label.-brown{background-color: saddlebrown}
+.label.-yellow{background-color: yellow}
+.label.-gray{background-color: gray;}
