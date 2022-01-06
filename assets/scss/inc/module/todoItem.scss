@@ -9,8 +9,5 @@
   }
   &__btns{display: flex;align-items: center; grid-area:btns;}
   &__endTime{grid-area:endTime; text-align: right; font-size:12px;}
-  &__more{grid-area: more; width: 100%; margin-top: 10px;
-    &__btn{display: flex; align-items: center; justify-content: flex-end; font-size:12px; background-color: $COLOR_LOWGRAY; padding: 2px 5px;}
-    &__content{}
-  }
+  &__more{grid-area: more; width: 100%; margin-top: 10px;background-color: $COLOR_LOWGRAY;}
 }

@@ -12,7 +12,7 @@ module.exports = function () {
     return new Promise(function (resolve) {
         jsBuildModule(vendorList, "vendor.js", dir.dist.js); //벤더
         jsBuildModule([dir.assets.js+"base/*.js"], "base.js", dir.dist.js); // 베이스
-        jsBuildModule([dir.assets.js+"component/**/*.js"], "component.js", dir.dist.js); // 컴포넌트 계열
+        jsBuildModule([dir.assets.js+"inc/**/*.js"], "inc.js", dir.dist.js); // 컴포넌트 계열
         jsBuildModule([dir.assets.js+"page/**/*.js"], "page.js", dir.dist.js); // 페이지 계열
         resolve();
     }).then(function () {

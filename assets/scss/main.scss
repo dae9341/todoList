@@ -5,10 +5,11 @@
 
 /*! 레이아웃 */
 @import "inc/layout/header"; // 레이아웃 > 헤더
-@import "inc/layout/footer"; // 레이아웃 > 헤더
+@import "inc/layout/footer"; // 레이아웃 > 푸터
 
 /*! 모듈 */
 @import "inc/module/todoItem"; // 모듈 > 할일 기본 형식
+@import "inc/module/todoItemMore"; // 모듈 > 할일 > 상세
 
 /*! 컴포넌트 */
 @import "inc/component/todoList"; // 컴포넌트 > 할일 목록
