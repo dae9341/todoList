@@ -1,3 +1,3 @@
-todoPrj.inc = {
+todoPrj.page = {
 
 };

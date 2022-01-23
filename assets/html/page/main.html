@@ -13,15 +13,22 @@
     <link rel="stylesheet" href="css/vendor.css">
     <script src="js/vendor.js"></script>
     <script src="js/base.js"></script>
+    <script src="js/inc.js"></script>
 </head>
 <body>
 
 @@include('../inc/layout/header.html')
-
+<div id="dataList"></div>
 
 @@include('../inc/module/todoItem.html')
 
 @@include('../inc/layout/footer.html')
+
+<a href="#test" onclick="todoPrj.layer.open(this); return false;">레이어 테스트</a>
+
+<div style="display: none" class="layerWrapper">
+    @@include('../inc/mylib/layer.html')
+</div>
 
 </body>
 </html>
