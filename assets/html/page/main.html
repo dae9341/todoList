@@ -16,6 +16,9 @@
     <script src="js/inc.js"></script>
 </head>
 <body>
+<style>
+    .addTodoBtn{position: fixed; bottom:20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #448063; display: flex; align-items: center; justify-content: center; color:#fff; font-size: 20px; font-weight: bold; }
+</style>
 
 @@include('../inc/layout/header.html')
 <div id="dataList"></div>
@@ -24,13 +27,12 @@
 
 @@include('../inc/layout/footer.html')
 
-<a href="#test" onclick="todoPrj.layer.open(this); return false;">레이어 테스트</a>
+<a href="#todoWriteLayer" class="addTodoBtn" onclick="todoPrj.layer.open(this); return false;">+<span class="hidden">할 일 작성하기</span></a>
 
 <div style="display: none" class="layerWrapper">
-    @@include('../inc/mylib/layer.html')
+    @@include('../inc/layer/todoWriteLayer.html')
 </div>
 
 
-@@include('../inc/component/todoWrite.html')
 </body>
 </html>

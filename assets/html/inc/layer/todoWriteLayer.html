@@ -1,0 +1,13 @@
+<div class="layer__content" data-layerId="todoWriteLayer">
+    @@include('../../inc/mylib/layerHeader.html',{
+        "title":"할 일 작성하기"
+    })
+    <div class="layer__body">
+        @@include('../component/todoWrite.html')
+    </div>
+
+    <div class="layer__footer">
+        <a href="#" class="layer__footer__close" onclick="todoPrj.layer.close(); return false;">닫기</a>
+        <a href="#" class="layer__footer__submit">확인</a>
+    </div>
+</div>

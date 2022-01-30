@@ -1,0 +1,6 @@
+.todoWrite{
+  &__item{display: flex; align-items: flex-start;margin-top:10px; &:first-child{margin-top:0;}
+    &__title{flex: 0 1 100px; display: block; padding-top: 2px;}
+    &__form{width: 100%; flex: 1;}
+  }
+}

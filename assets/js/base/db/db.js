@@ -70,6 +70,24 @@ function dataPrint() {
     });
 }
 
+//데이터 입력 (할 일 작성하기)
+function todoWriteData(key, datas) {
+    todoPrj.db.dbRef.child("todos/"+key).set({
+        category:datas.category,
+        deadline: datas.deadline,
+        isCompleted:datas.isCompleted,
+        memo:datas.memo,
+        startTime:datas.startTime,
+        title:datas.title
+    }, (error)=>{
+        if(error){
+            alert("입력 실패!")
+        }else{
+            alert("입력 성공!")
+        }
+    });
+}
+
 $(function () {
     dataPrint();
 })
