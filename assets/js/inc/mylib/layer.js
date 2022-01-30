@@ -2,15 +2,12 @@ todoPrj.layer=new __layer();
 
 function __layer() {
     const me = this;
-    me.layerWrapper =`
+
+    me.open=function (layerId) {
+        me.layerWrapper =`
         <div class="layer">
             <div class="layer__contentWrapper"></div>
         </div>`;
-
-    me.$layerContentWrapper=$(".layer__contentWrapper");
-
-
-    me.open=function (layerId) {
         layerId = (typeof layerId == "object") ? $(layerId).attr("href") : layerId;
         var hrefId=layerId.replace("#","");
         var $layerContent;
@@ -29,7 +26,8 @@ function __layer() {
     };
 
     me.close = function () {
-
+        $(".layerWrapper").append($(".layer").find(".layer__content"));
+        $(".layer").remove();
     };
 
     return me;
