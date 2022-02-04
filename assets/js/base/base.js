@@ -4,7 +4,10 @@ var todoPrj = {
 };
 
 todoPrj.base ={
-    toggleNoneBlock:__toggleNoneBlock
+    toggleNoneBlock:__toggleNoneBlock,
+    makeFullDate:__makeFullDate,
+    makeFullDateKey:__makeFullDateKey,
+    datetimeToDB:__datetimeToDB
 };
 
 window.onload=function () {

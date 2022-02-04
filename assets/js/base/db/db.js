@@ -1,6 +1,8 @@
 todoPrj.db={
     commonDB:{},
     converter:{},
+    todoWriteData:todoWriteData,
+    todos:[]
 };
 todoPrj.db.firebaseConfig = {
     apiKey: "AIzaSyDcsIRnfoshTi0ekIlRcCwLCRbLijalgas",
@@ -28,6 +30,12 @@ function dataPrint() {
             DATA.map(function (item,idx) {
                 var key = item[0];
                 var value= todoPrj.converter.todoVO(item[1]);
+
+                //데이터 저장
+                todoPrj.db.todos.push({
+                    key:item[0],
+                    value:item[1]
+                });
 
                 html+=`<div class="todoItem">  
                         <div class="todoItem__work">

@@ -1,7 +1,7 @@
 <div class="todoWrite">
     <div class="todoWrite__item -category">
         <span class="todoWrite__item__title">카테고리</span>
-        <select class="todoWrite__item__form" name="categorySelect" id="">
+        <select class="todoWrite__item__form" name="categorySelect" id="todoCategory">
             <option value="">선택해주세요</option>
             <option value="shopping">쇼핑</option>
             <option value="homework">집안일</option>
@@ -12,20 +12,20 @@
     </div>
     <div class="todoWrite__item">
         <span class="todoWrite__item__title">할 일</span>
-        <input class="todoWrite__item__form" type="text" value="" placeholder="할 일을 작성해주세요."/>
+        <input class="todoWrite__item__form" type="text" value="" placeholder="할 일을 작성해주세요." id="todoWork"/>
     </div>
     <div class="todoWrite__item">
         <span class="todoWrite__item__title">시작일</span>
-        <input class="todoWrite__item__form" type="datetime-local"/>
+        <input class="todoWrite__item__form" type="datetime-local" id="todoDateStart"/>
     </div>
     <div class="todoWrite__item">
         <span class="todoWrite__item__title">완료예정일</span>
-        <input class="todoWrite__item__form" type="datetime-local"/>
+        <input class="todoWrite__item__form" type="datetime-local" id="todoDateEnd"/>
     </div>
 
     <div class="todoWrite__item">
         <span class="todoWrite__item__title">메모</span>
-        <textarea class="todoWrite__item__form" name="" id="" cols="30" rows="10"></textarea>
+        <textarea class="todoWrite__item__form" name="" id="todoMemo" cols="30" rows="10"></textarea>
     </div>
 </div>
 

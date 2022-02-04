@@ -8,6 +8,23 @@
 
     <div class="layer__footer">
         <a href="#" class="layer__footer__close" onclick="todoPrj.layer.close(); return false;">닫기</a>
-        <a href="#" class="layer__footer__submit">확인</a>
+        <a href="#" class="layer__footer__submit" onclick="submitData(); todoPrj.layer.close(); return false;">확인</a>
     </div>
 </div>
+
+<script>
+    function submitData() {
+        var fullDate = todoPrj.base.makeFullDate(new Date());
+        var newKey = todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
+
+        todoPrj.db.todoWriteData(newKey,{
+            category:$("#todoCategory").val(),
+            deadline: todoPrj.base.datetimeToDB($("#todoDateEnd").val()),
+            isCompleted:false,
+            memo:$("#todoMemo").val(),
+            startTime:todoPrj.base.datetimeToDB($("#todoDateStart").val()),
+            title:$("#todoWork").val()
+        });
+        window.location.reload();
+    }
+</script>
