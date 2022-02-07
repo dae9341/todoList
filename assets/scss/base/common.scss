@@ -1,4 +1,5 @@
 html *{font-size:14px;color: $COLOR_DARKGRAY;}
+body{position: relative;width: 100%;}
 button{background: $COLOR_BRAND;outline: none;border: none; color:#fff; height: 24px;padding: 0 5px;}
 /*접근성 텍스트 숨기기*/
 .hidden{overflow: hidden;position: absolute;width: 1px;height: 1px;margin: -1px;padding: 0;border: 0;line-height: 0;white-space: normal;word-wrap: break-word;word-break: break-all;clip: rect(0, 0, 0, 0);}
@@ -10,5 +11,9 @@ button{background: $COLOR_BRAND;outline: none;border: none; color:#fff; height: 
 .label.-red{background-color: darkred;}
 .label.-gray{background-color: gray;}
 .label.-black{background-color: black;}
+
+.default-labelForm{display: flex; align-items: center; background: #ffffff;
+  &.-select{border:1px solid $COLOR_BRAND; border-radius: 10px; color:#fff;}
+}
 
 input[type=text],input[type=date],textarea,select{padding: 5px; box-sizing: border-box;}

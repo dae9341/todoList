@@ -1,0 +1,6 @@
+.todoList{
+  padding: 10px;
+  .todoItem{margin-top: 10px;
+    &:first-child{margin-top: 0;}
+  }
+}

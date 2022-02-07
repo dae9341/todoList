@@ -41,10 +41,9 @@ function __todoVO(data) {
             break;
     }
 
-    tobeDATA.deadline = todoPrj.commonDB.dateSet(originDATA.deadline);
-    tobeDATA.startTime = todoPrj.commonDB.dateSet(originDATA.startTime);
+    // tobeDATA.deadline = todoPrj.commonDB.dateSet(originDATA.deadline);
+    // tobeDATA.startTime = todoPrj.commonDB.dateSet(originDATA.startTime);
 
-    console.log(tobeDATA);
 
     return tobeDATA;
 

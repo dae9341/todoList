@@ -43,7 +43,7 @@ function dataPrint() {
                                 <span class="label -${value.categoryColor}">${value.category}</span>
                             </div>
                             <div class="todoItem__work__name">
-                                <span>${value.title}</span>
+                                <span>${value.title}</span> 
                             </div>
                         </div>
                         <div class="todoItem__btns">
@@ -54,8 +54,8 @@ function dataPrint() {
                         </div>
                         <div class="todoItem__more">
                                 <div class="todoItemMore">
-                        <a href="#todoItemMore${idx}" class="todoItemMore__btn" onclick="todoPrj.base.toggleNoneBlock($(this).attr('href'));">더보기</a>
-                        <div id="todoItemMore${idx}" class="todoItemMore__content">
+                        <a href="#todoItemMore${idx}" class="todoItemMore__btn" onclick="todoPrj.base.toggleNoneBlock($(this).attr('href')); return false;">더보기</a>
+                        <div id="todoItemMore${idx}" class="todoItemMore__content"> 
                             <h2 class="todoItemMore__content__title">
                                  ${value.title}
                             </h2>
@@ -68,7 +68,7 @@ function dataPrint() {
                 </div>
             </div>`
             });
-            $("#dataList").append(html);
+            $("#todoList").append(html);
 
         } else {
             console.log("No data available");
