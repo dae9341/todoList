@@ -41,8 +41,9 @@ function __todoVO(data) {
             break;
     }
 
-    // tobeDATA.deadline = todoPrj.commonDB.dateSet(originDATA.deadline);
-    // tobeDATA.startTime = todoPrj.commonDB.dateSet(originDATA.startTime);
+    //날짜 형식 변환
+    tobeDATA.deadline = todoPrj.base.datetimeToDB(originDATA.deadline);
+    tobeDATA.startTime = todoPrj.base.datetimeToDB(originDATA.startTime);
 
 
     return tobeDATA;

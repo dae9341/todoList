@@ -27,7 +27,7 @@
 
 @@include('../inc/layout/footer.html')
 
-<a href="#todoWriteLayer" class="addTodoBtn" onclick="todoPrj.layer.open(this); return false;">+<span class="hidden">할 일 작성하기</span></a>
+<a href="#todoWriteLayer" class="addTodoBtn" onclick="todoPrj.db.todoWritePrint(); return false;">+<span class="hidden">할 일 작성하기</span></a>
 
 <div style="display: none" class="layerWrapper">
     @@include('../inc/layer/todoWriteLayer.html')

@@ -2,6 +2,7 @@ todoPrj.db={
     commonDB:{},
     converter:{},
     todoWriteData:todoWriteData,
+    todoWritePrint:todoWritePrint,
     todos:[]
 };
 todoPrj.db.firebaseConfig = {
@@ -24,21 +25,23 @@ function dataPrint() {
         if (snapshot.exists()) {
             var html=``;
             var DATA= [];
-            for(var i in snapshot.val())
+            for(var i in snapshot.val()){
                 DATA.push([i, snapshot.val()[i]]);
-
+                //DB오리진 데이터 저장
+                todoPrj.db.todos.push({
+                    key:i,
+                    value:snapshot.val()[i]
+                });
+            }
             DATA.map(function (item,idx) {
+
+                //컨버터 변환
                 var key = item[0];
                 var value= todoPrj.converter.todoVO(item[1]);
 
-                //데이터 저장
-                todoPrj.db.todos.push({
-                    key:item[0],
-                    value:item[1]
-                });
 
-                html+=`<div class="todoItem">  
-                        <div class="todoItem__work">
+                html+=`<div class="todoItem" data-key="${key}" onclick="todoPrj.db.todoWritePrint($(this).data('key')); return false;">   
+                        <div class="todoItem__work">  
                             <div class="todoItem__work__category">
                                 <span class="label -${value.categoryColor}">${value.category}</span>
                             </div>
@@ -94,6 +97,51 @@ function todoWriteData(key, datas) {
             alert("입력 성공!")
         }
     });
+}
+
+// key값으로 todo작성 레이어호출
+function todoWritePrint(key){
+    todoPrj.layer.open("#todoWriteLayer");
+    if(key){
+        var thisItem;
+        thisItem = todoPrj.db.todos.filter(function (item) {
+            return item.key == key;
+        });
+
+        $("#todoCategory").val(thisItem[0].value.category);
+        $("#todoDateEnd").val(thisItem[0].value.deadline);
+        $("#todoMemo").val(thisItem[0].value.memo);
+        $("#todoDateStart").val(thisItem[0].value.startTime);
+        $("#todoWork").val(thisItem[0].value.title);
+    }else{
+        $("#todoCategory").val(null);
+        $("#todoDateEnd").val(null);
+        $("#todoMemo").val(null);
+        $("#todoDateStart").val(null);
+        $("#todoWork").val(null);
+    }
+
+    //TODO: 버그있음(다른TODO가 같이 바뀌기도함. 이벤트 중복확인 필요)
+    $(".layer__contentWrapper.todoWriteLayer").find(".layer__footer__submit").on("click",function () {
+        submitData(key);
+        todoPrj.layer.close();
+        return false;
+    });
+
+    function submitData(code) {
+        var fullDate = todoPrj.base.makeFullDate(new Date());
+        var newKey = (code)? code : todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
+
+        todoPrj.db.todoWriteData(newKey,{
+            category:$("#todoCategory").val(),
+            deadline: $("#todoDateEnd").val(),
+            isCompleted:false,
+            memo:$("#todoMemo").val(),
+            startTime:$("#todoDateStart").val(),
+            title:$("#todoWork").val()
+        });
+        window.location.reload();
+    }
 }
 
 $(function () {
