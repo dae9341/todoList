@@ -17,13 +17,13 @@
 </head>
 <body>
 <style>
-    .addTodoBtn{position: fixed; bottom:20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #448063; display: flex; align-items: center; justify-content: center; color:#fff; font-size: 20px; font-weight: bold; }
+    .addTodoBtn{position: fixed; z-index: 10; bottom:20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #448063; display: flex; align-items: center; justify-content: center; color:#fff; font-size: 20px; font-weight: bold; }
 </style>
 
 @@include('../inc/layout/header.html')
 <div id="todoList" class="todoList"></div>
 
-@@include('../inc/module/todoItem.html')
+<!--@@include('../inc/module/todoItem.html')-->
 
 @@include('../inc/layout/footer.html')
 

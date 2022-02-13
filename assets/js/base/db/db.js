@@ -40,8 +40,9 @@ function dataPrint() {
                 var value= todoPrj.converter.todoVO(item[1]);
 
 
-                html+=`<div class="todoItem" data-key="${key}" onclick="todoPrj.db.todoWritePrint($(this).data('key')); return false;">   
-                        <div class="todoItem__work">  
+                html+=`<div class="todoItem" data-key="${key}">   
+                        <a href="#" onclick="todoPrj.db.todoWritePrint($(this).parent().data('key')); return false;" class="todoItem__link"><span class="hidden">${value.title} 링크</span></a>
+                        <div class="todoItem__work">   
                             <div class="todoItem__work__category">
                                 <span class="label -${value.categoryColor}">${value.category}</span>
                             </div>
@@ -69,6 +70,7 @@ function dataPrint() {
                         </div>
                     </div>
                 </div>
+                <a href="#" class="todoItem__btnDelete"><span class="hidden">삭제</span></a>
             </div>`
             });
             $("#todoList").append(html);
@@ -129,6 +131,7 @@ function todoWritePrint(key){
     });
 
     function submitData(code) {
+        console.log("codeTest!!!!!",code);
         var fullDate = todoPrj.base.makeFullDate(new Date());
         var newKey = (code)? code : todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
 
@@ -140,7 +143,7 @@ function todoWritePrint(key){
             startTime:$("#todoDateStart").val(),
             title:$("#todoWork").val()
         });
-        window.location.reload();
+        // window.location.reload();
     }
 }
 

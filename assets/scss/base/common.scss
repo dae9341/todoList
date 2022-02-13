@@ -16,4 +16,8 @@ button{background: $COLOR_BRAND;outline: none;border: none; color:#fff; height: 
   &.-select{border:1px solid $COLOR_BRAND; border-radius: 10px; color:#fff;}
 }
 
+.default-btn{border:1px solid $COLOR_BRAND; display: flex; @include center; background: $COLOR_BRAND; width: 30px; height: 20px;
+  >span{color: #fff;font-size:12px;}
+}
+
 input[type=text],input[type=date],textarea,select{padding: 5px; box-sizing: border-box;}
