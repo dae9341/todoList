@@ -11,7 +11,7 @@
   &__btns{display: flex;align-items: center; grid-area:btns;}
   &__endTime{grid-area:endTime; text-align: right; font-size:12px;}
   &__more{grid-area: more; width: 100%; margin-top: 10px;background-color: $COLOR_LOWGRAY; position: relative; z-index: 4;}
-  &__btnDelete{width: 18px; height: 18px; background: red; border-radius: 50%; display: flex; @include center; z-index: 7; position: absolute; top:0; right: 0; margin-top:-9px; margin-right: -9px;
+  &__btnDelete{width: 18px; height: 18px; background: red; border-radius: 50%; display: none; @include center; z-index: 7; position: absolute; top:0; right: 0; margin-top:-9px; margin-right: -9px;
     &:before{content:''; width: 10px; height: 2px; background: #fff; position: absolute;top: 50%;left: 50%;margin-left: -5px;margin-top: -1px;}
   }
 }
@@ -21,6 +21,8 @@
   .todoItem{
     animation: deleteAni 300ms infinite;
     /*transform-origin : center center;*/
+    .todoItem__btnDelete{display: flex;}
+    .todoItem__link{pointer-events: none;}
   }
   @keyframes deleteAni{
     0%{-moz-transform: rotate(0deg);-webkit-transform: rotate(0deg);-o-transform: rotate(0deg)}

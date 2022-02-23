@@ -4,6 +4,7 @@ const jsBuildModule = require("./js_build_module");
 const vendorList = [
     dir.assets.js+"vendor/jquery.js",
     dir.assets.js+"vendor/firebase_app_8.6.5.js",
+    dir.assets.js+"vendor/firebase_auth_8.6.5.js",
     dir.assets.js+"vendor/firebase_analytics_8.6.5.js",
     dir.assets.js+"vendor/firebase_database_8.6.5.js"
 ];

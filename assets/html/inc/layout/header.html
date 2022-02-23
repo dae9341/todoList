@@ -26,6 +26,20 @@
             <span>기한 임박</span>
         </label>
 
-        <a href="#" class="default-btn" onclick="$('#todoList').addClass('-modeDelete');"><span>삭제</span></a>
+        <a href="#" class="default-btn"><span>삭제</span></a>
+
+        <script>
+            $(function () {
+                $(".nav .default-btn").on("click",function () {
+                    if($('#todoList').hasClass('-modeDelete')){
+                        $('#todoList').removeClass('-modeDelete');
+                    }else{
+                        $('#todoList').addClass('-modeDelete');
+                    }
+
+                    return false;
+                })
+            })
+        </script>
     </nav>
 </header>

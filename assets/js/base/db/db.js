@@ -3,6 +3,7 @@ todoPrj.db={
     converter:{},
     todoWriteData:todoWriteData,
     todoWritePrint:todoWritePrint,
+    todoDeleteData:todoDeleteData,
     todos:[]
 };
 todoPrj.db.firebaseConfig = {
@@ -70,7 +71,7 @@ function dataPrint() {
                         </div>
                     </div>
                 </div>
-                <a href="#" class="todoItem__btnDelete"><span class="hidden">삭제</span></a>
+                <a href="#" class="todoItem__btnDelete" onclick="todoPrj.db.todoDeleteData($(this).parent().data('key')); return false;"><span class="hidden">삭제</span></a>
             </div>`
             });
             $("#todoList").append(html);
@@ -145,6 +146,15 @@ function todoWritePrint(key){
         });
         // window.location.reload();
     }
+}
+
+function todoDeleteData(key){
+    todoPrj.db.dbRef.child("todos/"+key).remove();
+    // todoPrj.db.dbRef.child("todos/"+key).get().then((snapshot) => {
+    //     if (snapshot.exists()) {
+    //     };
+    //
+    // });
 }
 
 $(function () {

@@ -17,5 +17,5 @@
     <div class="todoItem__more">
             @@include('./todoItemMore.html')
     </div>
-    <a href="#" class="todoItem__btnDelete"><span class="hidden">삭제</span></a>
+    <a href="#" class="todoItem__btnDelete" onclick="todoPrj.db.todoDeleteData(); return false;"><span class="hidden">삭제</span></a>
 </div>
