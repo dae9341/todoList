@@ -34,24 +34,31 @@ function __makeFullDate(date) {
 *
 * */
 function __makeFullDateKey(dataList, fullDate) {
-    var cnt = 1; // 해당 날짜 데이터 없을시 초기값 1
+    var number = 1; // 해당 날짜 데이터 없을시 초기값 1
+    var keyArr=[];
     var key = "";
 
-    dataList.filter(function (item) {
-        if(item.key.indexOf(fullDate)>-1){ // 날짜포함시 카운트 증가
-            cnt++; 
+    dataList.filter(function (item,idx) {
+        if(item.key.indexOf(fullDate)>-1){ // 날짜포함하면서 마지막 값일때
+            var temp_num = item.key.slice(-3, item.key.length); // 뒤에 세자리를 짜른다
+            keyArr.push(parseInt(temp_num)); //뒤에세자리 keyArr에 담는다.
         }
     });
 
+    //해당날짜 데이터있을때.
+    if(keyArr.length){
+        number = (Math.max.apply(Math, keyArr)+1).toString(); // 최대값+1을 number 할당.
+    }
     //변환
-    if(cnt<10){
-        cnt= "00"+cnt.toString();
-    }else if(cnt >= 10 && cnt < 100){
-        cnt= "0"+cnt.toString();
+    if(number<10){
+        number= "00"+number.toString();
+    }else if(number >= 10 && number < 100){
+        number= "0"+number.toString();
     }
 
-    key = fullDate+cnt;
+    key = fullDate+number;
 
+    console.log(key);
     return key;
 }
 

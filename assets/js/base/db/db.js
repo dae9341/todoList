@@ -22,6 +22,7 @@ todoPrj.db.dbRef = firebase.database().ref();
 
 //데이터 출력
 function dataPrint() {
+    console.log("test");
     todoPrj.db.dbRef.child("todos").get().then((snapshot) => {
         if (snapshot.exists()) {
             var html=``;
@@ -104,6 +105,7 @@ function todoWriteData(key, datas) {
 
 // key값으로 todo작성 레이어호출
 function todoWritePrint(key){
+    console.log("test");
     todoPrj.layer.open("#todoWriteLayer");
     if(key){
         var thisItem;
@@ -130,31 +132,61 @@ function todoWritePrint(key){
         todoPrj.layer.close();
         return false;
     });
-
-    function submitData(code) {
-        console.log("codeTest!!!!!",code);
-        var fullDate = todoPrj.base.makeFullDate(new Date());
-        var newKey = (code)? code : todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
-
-        todoPrj.db.todoWriteData(newKey,{
-            category:$("#todoCategory").val(),
-            deadline: $("#todoDateEnd").val(),
-            isCompleted:false,
-            memo:$("#todoMemo").val(),
-            startTime:$("#todoDateStart").val(),
-            title:$("#todoWork").val()
-        });
-        // window.location.reload();
-    }
 }
 
+// key값으로 todo작성
+function submitData(code) {
+    console.log("codeTest!!!!!",code);
+    var fullDate = todoPrj.base.makeFullDate(new Date());
+    var newKey = (code)? code : todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
+    console.log(newKey);
+
+    todoPrj.db.todoWriteData(newKey,{
+        category:$("#todoCategory").val(),
+        deadline: $("#todoDateEnd").val(),
+        isCompleted:false,
+        memo:$("#todoMemo").val(),
+        startTime:$("#todoDateStart").val(),
+        title:$("#todoWork").val()
+    });
+    window.location.reload();
+}
+
+
+//key값으로 데이터삭제
 function todoDeleteData(key){
-    todoPrj.db.dbRef.child("todos/"+key).remove();
-    // todoPrj.db.dbRef.child("todos/"+key).get().then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //     };
-    //
-    // });
+    if(!key){
+        return;
+    }
+
+    var thisItem;
+    thisItem = todoPrj.db.todos.filter(function (item) {
+        return item.key == key;
+    });
+
+    var confirmComment = "todo "+thisItem[0].value.title+"을(를) 삭제하시겠습니까?";
+
+    if(window.confirm(confirmComment)){
+        todoPrj.db.dbRef.child("todos/"+key).set({
+            category:null,
+            deadline:null,
+            isCompleted:null,
+            memo:null,
+            startTime:null,
+            title:null
+        }, (error) => {
+            if (error) {
+                // The write failed...
+            } else {
+                // Data saved successfully!
+                alert("삭제완료되었습니다!")
+            }
+        })
+        window.location.reload();
+
+    }else{
+        return false;
+    }
 }
 
 $(function () {

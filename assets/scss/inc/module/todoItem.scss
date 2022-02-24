@@ -19,7 +19,7 @@
 // 삭제모드
 .todoList.-modeDelete{
   .todoItem{
-    animation: deleteAni 300ms infinite;
+    //animation: deleteAni 300ms infinite;
     /*transform-origin : center center;*/
     .todoItem__btnDelete{display: flex;}
     .todoItem__link{pointer-events: none;}
