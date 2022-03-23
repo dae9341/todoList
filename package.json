@@ -11,15 +11,24 @@
   "dependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "firebase": "^9.6.1",
     "gulp-babel": "^8.0.0",
-    "gulp-include": "^2.4.1"
+    "gulp-browserify": "^0.5.1",
+    "gulp-include": "^2.4.1",
+    "gulp-vue-file": "^0.1.5"
   },
   "devDependencies": {
+    "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
+    "babel-plugin-component": "^1.1.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
     "gulp-sass": "^5.1.0",
+    "gulp-vue-compiler": "^1.0.0-beta.1",
     "sass": "^1.45.2"
   }
 }

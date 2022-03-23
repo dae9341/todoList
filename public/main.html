@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="../../../public/css/main.css">-->
+    <!--<link rel="stylesheet" href="../../../public/css/vendor.css">-->
+    <!--<script src="../../../public/js/vendor.js"></script>-->
+    <!--<script src="../../../public/js/base.js"></script>-->
+    <!--<script src="../../../public/js/index.js"></script>-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <script src="js/vendor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/inc.js"></script>
+    <script src="js/vueComponent.js"></script>
+</head>
+<body>
+<style>
+    .addTodoBtn{position: fixed; z-index: 10; bottom:20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #448063; display: flex; align-items: center; justify-content: center; color:#fff; font-size: 20px; font-weight: bold; }
+</style>
+
+<header>
+    <h1>TODOLIST</h1>
+    <nav class="nav">
+        <label class="default-labelForm -select">
+            <span>상태</span>
+            <select name="" id="">
+                <option value="">전체</option>
+                <option value="">대기</option>
+                <option value="">진행중</option>
+                <option value="">완료</option>
+            </select>
+        </label>
+
+        <label class="default-labelForm -select">
+            <span>카테고리</span>
+            <select name="" id="">
+                <option value="">전체</option>
+                <option value="">쇼핑</option>
+                <option value="">집안일</option>
+                <option value="">기타</option>
+            </select>
+        </label>
+
+        <label class="default-labelForm -check">
+            <input type="checkbox"/>
+            <span>기한 임박</span>
+        </label>
+
+        <a href="#" class="default-btn nav__deleteBtn"><span>삭제</span></a>
+
+        <script>
+            $(function () {
+                $(".nav .default-btn").on("click",function () {
+                    if($(this).hasClass('-on')){
+                        $(this).removeClass("-on");
+                        $('#todoList').removeClass('-modeDelete');
+                    }else{
+                        $(this).addClass("-on");
+                        $('#todoList').addClass('-modeDelete');
+                    }
+
+                    return false;
+                })
+            })
+        </script>
+    </nav>
+</header>
+<div id="todoList" class="todoList"></div>
+
+
+
+<footer>
+
+</footer>
+
+<a href="#todoWriteLayer" class="addTodoBtn" onclick="todoPrj.db.todoWritePrint(); return false;">+<span class="hidden">할 일 작성하기</span></a>
+
+<div style="display: none" class="layerWrapper">
+    <div class="layer__content" data-layerId="todoWriteLayer">
+    <div class="layer__header">
+    할 일 작성하기
+</div>
+    <div class="layer__body">
+        <div class="todoWrite">
+    <div class="todoWrite__item -category">
+        <span class="todoWrite__item__title">카테고리</span>
+        <select class="todoWrite__item__form" name="categorySelect" id="todoCategory">
+            <option value="">선택해주세요</option>
+            <option value="shopping">쇼핑</option>
+            <option value="homework">집안일</option>
+            <option value="officework">회사업무</option>
+            <option value="schedule">일정</option>
+            <option value="etc">기타</option>
+        </select>
+    </div>
+    <div class="todoWrite__item">
+        <span class="todoWrite__item__title">할 일</span>
+        <input class="todoWrite__item__form" type="text" value="" placeholder="할 일을 작성해주세요." id="todoWork"/>
+    </div>
+    <div class="todoWrite__item">
+        <span class="todoWrite__item__title">시작일</span>
+        <input class="todoWrite__item__form" type="datetime-local" id="todoDateStart"/>
+    </div>
+    <div class="todoWrite__item">
+        <span class="todoWrite__item__title">완료예정일</span>
+        <input class="todoWrite__item__form" type="datetime-local" id="todoDateEnd"/>
+    </div>
+
+    <div class="todoWrite__item">
+        <span class="todoWrite__item__title">메모</span>
+        <textarea class="todoWrite__item__form" name="" id="todoMemo" cols="30" rows="10"></textarea>
+    </div>
+</div>
+
+<!--
+
+category:
+"shopping"
+deadline:
+202201072400
+isCompleted:
+false
+memo:
+"쿠팡에서 사기"
+startTime:
+202201071613
+title:
+"행드워시 구매하기"
+
+-->
+    </div>
+
+    <div class="layer__footer">
+        <a href="#" class="layer__footer__close" onclick="todoPrj.layer.close(); return false;">닫기</a>
+        <a href="#" class="layer__footer__submit">확인</a>
+    </div>
+</div>
+
+<script>
+    /*function submitData(key) {
+        var fullDate = todoPrj.base.makeFullDate(new Date());
+        var newKey = (key)? key : todoPrj.base.makeFullDateKey(todoPrj.db.todos, fullDate);
+
+        todoPrj.db.todoWriteData(newKey,{
+            category:$("#todoCategory").val(),
+            deadline: $("#todoDateEnd").val(),
+            isCompleted:false,
+            memo:$("#todoMemo").val(),
+            startTime:$("#todoDateStart").val(),
+            title:$("#todoWork").val()
+        });
+        window.location.reload();
+    }*/
+</script>
+</div>
+<div id="test22">
+    <aaa-abc></aaa-abc>
+</div>
+ 
+</body>
+</html>

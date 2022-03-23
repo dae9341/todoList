@@ -30,6 +30,16 @@ function html_watch(cb){
     cb();
 }
 
+function vue_build(cb){
+    require('./gulp_modules/vue_build')();
+    cb();
+}
+
+function vue_watch(cb){
+    require('./gulp_modules/vue_watch')();
+    cb();
+}
+
 exports.css = scss_build;
 exports.cssWatch = scss_watch;
 
@@ -39,5 +49,8 @@ exports.jsWatch = js_watch;
 exports.html = html_include;
 exports.htmlWatch = html_watch;
 
-exports.build = parallel(scss_build,js_build,html_include);
-exports.watch = parallel(scss_watch,js_watch,html_watch);
+exports.vue = vue_build;
+exports.vueWatch =  vue_watch;
+
+exports.build = parallel(scss_build,js_build,html_include,vue_build);
+exports.watch = parallel(scss_watch,js_watch,html_watch,vue_watch);
